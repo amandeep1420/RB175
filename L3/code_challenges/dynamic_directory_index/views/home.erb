@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <ul>
+    <% @file_names.sort!                    if @sort_order == "ascending" %>
+    <% @file_names.sort! { |a, b| b <=> a } if @sort_order == "descending" %>
+    <% @file_names.each do |file_name| %>
+      <li> 
+        <a href="<%= file_name %>"><%= file_name %></a>
+      </li>
+    <% end %>
+  </ul>
+  <form>
+    <input type="submit" id="Test" value="Sort ascending" name="sort_order">
+  </form>
+  <form>
+    <input type="submit" id="Test" value="Sort descending" name="sort_order">
+  </form>
+</body>
+</html>
